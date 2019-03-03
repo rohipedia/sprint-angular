@@ -1,0 +1,35 @@
+<div class="row">
+  <button class="btn btn-link" (click)="toggleScrums()">{{ buttonLabel }}</button>
+</div>
+<div class="row" *ngIf="showScrums">
+  <table class="table table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Iteration</th>
+        <th>Feature</th>
+        <th>Status</th>
+        <th>Dependencies</th>
+        <th>Release</th>
+        <th>Branch</th>
+        <th>Environment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let scrum of scrums">
+        <td>{{ scrum.name }}</td>
+        <td>{{ scrum.type }}</td>
+        <td>{{ iteration }}</td>
+        <td>{{ scrum.feature }}</td>
+        <td class="status">
+          <app-stories-status [status]="scrum.status"></app-stories-status>
+        </td>
+        <td>{{ scrum.dependencies }}</td>
+        <td>{{ scrum.release }}</td>
+        <td>{{ scrum.branch }}</td>
+        <td>{{ scrum.environment }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
